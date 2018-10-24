@@ -22,7 +22,7 @@ ground (GND) = - VCC (3.3v or 5v) = +
 
 ### GPIO Layout
 
-![alt text](https://github.com/gforti/pi-demos/blob/master/preview/Pi-GPIO-Layout.png "GPIO Layout")
+![alt text](https://github.com/gforti/pi-demos/blob/master/Pi-GPIO-Layout.png "GPIO Layout")
 
 
 ### Issues with NPM install
