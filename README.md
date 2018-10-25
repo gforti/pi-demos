@@ -12,8 +12,8 @@ $ npm install
 ### understanding pins
 | Code | Meaning |
 | ------ | ------ |
-| VCC | 5v | 
-| GND | Ground |
+| VCC | 5v (+) | 
+| GND | Ground (-) |
 | DO | GPIO pin (Digital Output) |
 | ao | Analog Output |
 
@@ -54,3 +54,6 @@ $ hostname -I
 ```sh
 $ ssh pi@<IP> [-port 22 ]
 ```
+
+## Recommend Sites
+- https://www.piddlerintheroot.com/
