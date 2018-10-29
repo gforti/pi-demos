@@ -12,12 +12,10 @@ $ npm install
 ### understanding pins
 | Code | Meaning |
 | ------ | ------ |
-| VCC | 5v (+) | 
+| VCC | 5v (+) (3.3v or 5v) | 
 | GND | Ground (-) |
 | DO | GPIO pin (Digital Output) |
 | ao | Analog Output |
-
-ground (GND) = - VCC (3.3v or 5v) = +
 
 
 ### GPIO Layout
