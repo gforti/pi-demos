@@ -15,7 +15,7 @@ $ npm install
 | VCC | 5v (+) (3.3v or 5v) | 
 | GND | Ground (-) |
 | DO | GPIO pin (Digital Output) |
-| ao | Analog Output |
+| AO | Analog Output |
 
 
 ### GPIO Layout
@@ -55,3 +55,8 @@ $ ssh pi@<IP> [-port 22 ]
 
 ## Recommend Sites
 - https://www.piddlerintheroot.com/
+- https://flows.nodered.org/
+- https://projects.raspberrypi.org/en/projects/getting-started-with-node-red
+- https://github.com/node-red/node-red-dashboard
+- https://github.com/arvindr21/pi_videoEMailIntruder
+- https://github.com/natevw/node-rf24
