@@ -1,6 +1,5 @@
 # pi-demos
 
-
 ### Install
 
 Install all dependences before running any demo at the root demo folder
@@ -21,6 +20,11 @@ $ npm install
 ### GPIO Layout
 
 ![alt text](https://github.com/gforti/pi-demos/blob/master/Pi-GPIO-Layout.png "GPIO Layout")
+
+
+### PI Sensors
+
+![alt text](https://github.com/gforti/pi-demos/blob/master/pi-sensors.png "Sensors")
 
 
 ### Issues with NPM install
@@ -60,3 +64,36 @@ $ ssh pi@<IP> [-port 22 ]
 - https://github.com/node-red/node-red-dashboard
 - https://github.com/arvindr21/pi_videoEMailIntruder
 - https://github.com/natevw/node-rf24
+- https://www.w3schools.com/nodejs/nodejs_raspberrypi.asp
+
+
+## Setting up the Raspberry PI
+
+- https://thisdavej.com/beginners-guide-to-installing-node-js-on-a-raspberry-pi/
+
+### Install Node.js
+
+```sh
+$ curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -
+```
+
+then
+```sh
+$ sudo apt install -y nodejs
+```
+
+```sh
+$ node -v
+$ npm -v
+```
+
+### install GIT
+
+```sh
+$ sudo apt-get install git
+```
+or
+
+```sh
+$ sudo apt install git
+```
