@@ -24,7 +24,7 @@ $ npm install
 
 ### PI Sensors
 
-![alt text](https://github.com/gforti/pi-demos/blob/master/pi-sensors.png "Sensors")
+![alt text](https://github.com/gforti/pi-demos/blob/master/pi-sensors.jpg "Sensors")
 
 
 ### Issues with NPM install
