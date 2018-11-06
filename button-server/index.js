@@ -1,30 +1,37 @@
-var http = require('http').createServer(handler); //require http server, and create server with function handler()
-var fs = require('fs'); //require filesystem module
-var io = require('socket.io')(http) //require socket.io module and pass the http object (server)
-var Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
-var LED = new Gpio(4, 'out'); //use GPIO pin 4 as output
-var pushButton = new Gpio(17, 'in', 'both'); //use GPIO pin 17 as input, and 'both' button presses, and releases should be handled
+const http = require('http')
+const express = require('express')
+const socketio = require('socket.io')
+
+const app = express();
+const server = http.Server(app);
+const io = socketio(server);
+
+const Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
+const LED = new Gpio(4, 'out'); //use GPIO pin 4 as output
+const pushButton = new Gpio(17, 'in', 'both'); //use GPIO pin 17 as input, and 'both' button presses, and releases should be handled
 
 const port = process.env.port || 2900
 const host_ip = require('../host-ip')
 
-http.listen(port); //listen to port 8080
+const root = __dirname
 
-function handler (req, res) { //create server
-  fs.readFile(__dirname + '/public/index.html', function(err, data) { //read file index.html in public folder
-    if (err) {
-      res.writeHead(404, {'Content-Type': 'text/html'}); //display 404 on error
-      return res.end("404 Not Found");
-    }
-    res.writeHead(200, {'Content-Type': 'text/html'}); //write HTML
-    res.write(data); //write data from index.html
-    return res.end();
-  });
-  console.log(`Listening on http://${host_ip}:${port}/index.html`)
+const fallback = (...pathOptions) => (req, res, next) => {
+  if ((req.method === 'GET' || req.method === 'HEAD') && req.accepts('html')) {
+    res.sendFile.call(res, ...pathOptions, error => error && next())
+  } else next()
 }
 
+app.use(express.static(root))
+app.use(fallback('index.html', { root }))
+
+let httpInstance = server.listen(port, () => {
+    console.log(`Listening on http://${host_ip}:${port}/index.html`)
+})
+
+
+
 io.sockets.on('connection', function (socket) {// WebSocket Connection
-  var lightvalue = 0; //static variable for current status
+  let lightvalue = 0; //static variable for current status
   pushButton.watch(function (err, value) { //Watch for hardware interrupts on pushButton
     if (err) { //if an error
       console.error('There was an error', err); //output error message to console
@@ -45,5 +52,6 @@ process.on('SIGINT', function () { //on ctrl+c
   LED.writeSync(0); // Turn LED off
   LED.unexport(); // Unexport LED GPIO to free resources
   pushButton.unexport(); // Unexport Button GPIO to free resources
+  httpInstance.close()
   process.exit(); //exit completely
 });
