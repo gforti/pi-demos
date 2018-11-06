@@ -28,6 +28,14 @@ Then in the terminal the command would be
 $ npm run sensor
 ```
 
+### PIR Connection
+
+![alt text](https://github.com/gforti/pi-demos/blob/master/sensors/pir_connect.jpg "PIR Connection")
+
+- Black is GND
+- Red is power
+- Middle is GPIO
+
 ### Setup
 ![alt text](https://github.com/gforti/pi-demos/blob/master/sensors/led-pir-connection.png "GPIO Layout")
 
