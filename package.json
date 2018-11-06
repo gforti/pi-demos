@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "echo \"Error: no file specified\" && exit 1"
+    "start": "echo \"Error: no file specified\" && exit 1",
+    "server": "nodemon button-server/index.js"
   },
   "author": "Gabriel Forti",
   "license": "MIT",

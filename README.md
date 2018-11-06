@@ -5,7 +5,7 @@
 Install all dependences before running any demo at the root demo folder
 
 ```sh
-$ npm install
+$ sudo npm install
 ```
 
 ### understanding pins

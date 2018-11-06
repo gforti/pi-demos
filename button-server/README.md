@@ -5,6 +5,12 @@
 $ node button-server/index.js -port=2900
 ```
 
+from the root
+
+```sh
+$ npm run server
+```
+
 ### Running the App
 Note that everyone must be on the same network/WiFi. Chrome is the recommend web browser.
 

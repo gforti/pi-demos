@@ -2,9 +2,9 @@ const http = require('http')
 const express = require('express')
 const socketio = require('socket.io')
 
-const app = express();
-const server = http.Server(app);
-const io = socketio(server);
+const app = express()
+const server = http.Server(app)
+const io = socketio(server)
 
 const Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
 const LED = new Gpio(4, 'out'); //use GPIO pin 4 as output
@@ -25,14 +25,12 @@ app.use(express.static(root))
 app.use(fallback('index.html', { root }))
 
 let httpInstance = server.listen(port, () => {
-    console.log(`Listening on http://${host_ip}:${port}/index.html`)
+    console.log(`Listening on http://${host_ip}:${port}`)
 })
 
-
-
-io.sockets.on('connection', function (socket) {// WebSocket Connection
+io.sockets.on('connection', (socket) => {// WebSocket Connection
   let lightvalue = 0; //static variable for current status
-  pushButton.watch(function (err, value) { //Watch for hardware interrupts on pushButton
+  pushButton.watch((err, value) => { //Watch for hardware interrupts on pushButton
     if (err) { //if an error
       console.error('There was an error', err); //output error message to console
       return;
@@ -40,9 +38,9 @@ io.sockets.on('connection', function (socket) {// WebSocket Connection
     lightvalue = value;
     socket.emit('light', lightvalue); //send button status to client
   });
-  socket.on('light', function(data) { //get light switch status from client
+  socket.on('light', (data) => { //get light switch status from client
     lightvalue = data;
-    if (lightvalue != LED.readSync()) { //only change LED if status has changed
+    if (lightvalue !== LED.readSync()) { //only change LED if status has changed
       LED.writeSync(lightvalue); //turn LED on or off
     }
   });
