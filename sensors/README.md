@@ -30,7 +30,7 @@ $ npm run sensor
 
 ### PIR Connection
 
-![alt text](https://github.com/gforti/pi-demos/blob/master/sensors/pir_connect.jpg "PIR Connection")
+![alt text](https://github.com/gforti/pi-demos/blob/master/sensors/pir-connect.jpg "PIR Connection")
 
 - Black is GND
 - Red is power
