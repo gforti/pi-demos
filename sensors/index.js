@@ -1,5 +1,5 @@
 /*
- * Senors this code works
+ * Senors this code works for
  * Tilt, PIR(Motion)
  */
 
@@ -7,7 +7,7 @@ const Gpio = require('onoff').Gpio; //include onoff to interact with the GPIO
 
 const sensor = new Gpio(17, 'in', 'both'); //use GPIO pin 17 as input, and 'both' button presses, and releases should be handled
 
-sensor.watch(function (err, value) { //Watch for hardware interrupts on pushButton GPIO, specify callback function
+sensor.watch((err, value) => { //Watch for hardware interrupts on pushButton GPIO, specify callback function
   if (err) { //if an error
     console.error('There was an error', err); //output error message to console
   return;
